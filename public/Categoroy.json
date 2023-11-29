@@ -1,0 +1,8 @@
+[
+    { "type": "user", "id": 1 },
+    { "type": "product", "id": 2 },
+    { "type": "transaction", "id": 3 },
+    { "type": "category", "id": 4 },
+    { "type": "post", "id": 5 }
+]
+  

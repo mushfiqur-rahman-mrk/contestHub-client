@@ -1,0 +1,50 @@
+[
+    {
+         
+        "name": "Expressive Essays: A Journey Through Art",
+        "type": "Article",
+        "price": 2200,
+        "prize": 300,
+        "instructions": "Submit your article in English. Essays should be insightful, well-researched, and engaging.",
+        "deadline": "2023-11-29",
+        "description": "Explore the intersection of art and emotion in this article writing contest. Craft a 500-word essay discussing",
+        "participation": 20,
+        "CreatorName": "onetest",
+        "status":"pending",
+        "CreatorEmail": "one@test.com",
+        "image": "https://i.ibb.co/DLPxYP1/Group-34992.png"
+    },
+    {
+         
+        "name": "A Journey Through Art",
+        "type": "Article",
+        "price": 100,
+        "prize": 500,
+        "instructions": "Submit your article in English. Essays should be insightful, well-researched, and engaging.",
+        "deadline": "2023-11-30",
+        "description": "Explore the intersection of art and emotion in this article writing contest. Craft a 500-word essay discussing ",
+        "participation": 10,
+        "CreatorName": "onetest",
+        "status":"pending",
+        "CreatorEmail": "one@test.com",
+        "image": "https://i.ibb.co/gFbXPCT/l-intro-1655828421.jpg"
+    },
+    {
+         
+        "name": "A Journey Through Art",
+        "type": "Article",
+        "price": 79.5,
+        "prize": 500,
+        "instructions": "Submit your article in English. Essays should be insightful, well-researched, and engaging.",
+        "deadline": "2023-11-30",
+        "description": "Explore the intersection of art and emotion in this article writing contest. Craft a 500-word essay discussing ",
+        "participation": 50,
+        "CreatorName": "onetest",
+        "CreatorEmail": "one@test.com",
+        "status":"pending",
+        "image": "https://i.ibb.co/rw60cqd/lava-cake.jpg"
+    }
+
+]
+
+ 
