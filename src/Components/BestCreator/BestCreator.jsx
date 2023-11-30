@@ -49,7 +49,7 @@ const BestCreator = () => {
          
 
          {
-          bestCreator?.map((item,idx)=><SwiperSlide key={idx}>
+          bestCreator?.slice(0,4).map((item,idx)=><SwiperSlide key={idx}>
           <img src={item?.image} className="w-full h-full object-cover object-center" />
           <div className="absolute z-10 bottom-0 bg-gradient-to-r from-[#602BF7] to-[#B258F5] py-2 text-white w-full text-center">
           <h1>{item?.name}</h1>
