@@ -9,17 +9,17 @@ const DashBoardLayout = () => {
   const {isCreatorLoading }=UseCreator()
   const {loading}=UseAuth()
   if(loading && isAdminLoading || isCreatorLoading){
-    return <div className="flex justify-center items-center w-full h-screen"><BounceLoader color="#36d7b7" /></div>
+    return <div className="flex justify-center items-center w-full h-screen"><BounceLoader color="#602BF7" /></div>
   }
   return (
     <>
        
       
       <div className="grid grid-cols-12">
-        <div className="col-span-3 bg-blue-300 w-full h-full">
+        <div className="md:col-span-3 w-full md:bg-gradient-to-r from-[#300c92] to-[#9633e2] h-full">
           <DashNav></DashNav>
         </div>
-        <div className="col-span-9">
+        <div className="col-span-11 md:col-span-9">
           <Outlet></Outlet>
         </div>
       </div>

@@ -19,14 +19,14 @@ const Payment = () => {
 
   return (
     <>
-    <div className="w-full h-[40vh]">
-      <img src="/src/assets/herobg.png" className="w-full h-full object-cover object-center" alt="" />
-    </div>
+      <div className="bg-gradient-to-r from-[#341786] to-[#0E0E30] w-full h-60 mb-5 relative">
+        <div className="absolute bottom-0 right-0 mb-[-10px]"><img src="/src/assets/10009.png" alt="" /></div>
+      </div>
       <Container>
-        <div className="max-w-xl mx-auto my-20">
-          <h1 className="mb-2 block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased text-center">{name}</h1>
-          <h1 className="text-center">Winner will get $ {prize}</h1>
-          <h1 className="mb-8">Registation fee $ {prize}</h1>
+        <div className="max-w-xl mx-auto my-20 px-10">
+          <h1 className="mb-2 block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased text-center text-[#341786] font-bold">{name}</h1>
+          <h1 className="text-center font-semibold mb-10">Winner will get $ {prize}</h1>
+          <h1 className="mb-8 font-light text-purple-500 text-xl">Registation fee: $ {price}</h1>
           <Elements stripe={stripePromise}>
             <CheckOut price={price} name={name} id={_id} data={data}></CheckOut>
           </Elements>

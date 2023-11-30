@@ -113,7 +113,7 @@ const CheckOut = ({price,name,data}) => {
             },
           }}
         />
-        <button className="px-6  rounded-lg text-white py-1 bg-orange-500 mt-5" type="submit" disabled={!stripe}>
+        <button className="px-10 font-bold rounded-lg text-white py-1 bg-gradient-to-r from-[#602BF7] to-[#B258F5] mt-5" type="submit" disabled={!stripe}>
           Pay
         </button>
         {

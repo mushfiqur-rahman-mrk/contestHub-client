@@ -57,7 +57,7 @@ const ManageRow = ({contest,idx,refetch}) => {
 
   return (
     <>
-       <tr className="hover:bg-gray-100 dark:hover:bg-orange-200">
+       <tr className="hover:bg-gray-100 dark:hover:bg-[#d0c2f7]">
                           <td className="p-4 w-4">
                             <div className="flex items-center">{idx + 1}</div>
                           </td>
@@ -72,7 +72,7 @@ const ManageRow = ({contest,idx,refetch}) => {
                           </td>
                           <td className="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap">
                              {
-                                contest?.status === 'pending' ? <p className="text-yellow-600">pending</p>
+                                contest?.status === 'pending' ? <p className="text-orange-500">pending</p>
                                 :
                                 <p className="text-green-600">approved</p>
                              }

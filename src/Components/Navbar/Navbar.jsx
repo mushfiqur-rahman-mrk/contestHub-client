@@ -78,7 +78,7 @@ const Navbar = () => {
       <nav
         className={`fixed z-10 top-0 w-full transition-all duration-300 
         
-      ${scrolled ? "bg-gray-900" : "bg-black bg-opacity-30 "}   `}
+      ${scrolled ? "bg-gradient-to-r from-[#341786] to-[#0E0E30]" : "bg-black bg-opacity-30 "}   `}
       >
        
           {/* Your navbar content goes here */}
@@ -130,7 +130,7 @@ const Navbar = () => {
 
       <div className=" w-96 text-center">
         <div
-          className={`bg-gradient-to-r bg-blue-400 z-30 space-y-4 pt-5 absolute w-64 h-full ${
+          className={`bg-gradient-to-r from-[#602BF7] to-[#B258F5] z-30 space-y-4 pt-5 absolute w-64 h-full ${
             open ? "top-20 right-0 transition-all duration-100" : "hidden"
           }`}
         >

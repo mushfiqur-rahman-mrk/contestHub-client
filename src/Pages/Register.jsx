@@ -85,7 +85,7 @@ const Register = () => {
 const onSubmit = async (data) => {
   console.log(data);
   const imageFile= {image: data.image[0]}
-
+  console.log(imageFile);
   const name=data.name;
   const password=data.password;
   const email=data.email;
@@ -98,11 +98,12 @@ const onSubmit = async (data) => {
        
        createUser(email,password)
        .then(result=>{
+        const image=res?.data?.data.display_url;
          updateProfile(result.user,{
            displayName:name,
            photoURL: res?.data?.data.display_url
          })
-         axiosPublic.post('/users',{name,email})
+         axiosPublic.post('/users',{name,email,image})
          .then(res=>{
            console.log(res.data);
            if (res.data.insertedId) {
@@ -134,6 +135,7 @@ const onSubmit = async (data) => {
               Register
             </h1>
             <div className="flex sm:w-96 flex-col gap-6">
+              
             <form onSubmit={handleSubmit(onSubmit)}>
                 {/* name */}
               <div className="mb-4">

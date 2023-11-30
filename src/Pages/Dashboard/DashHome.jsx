@@ -17,7 +17,7 @@ const DashHome = () => {
   const {data}=useQuery({
     queryKey:['admin-stats'],
     queryFn: async ()=>{
-      const res = await axios.get('http://localhost:5000/admin-stats')
+      const res = await axios.get('https://contest-hub-server-jet.vercel.app/admin-stats')
       return res.data
     }
   })

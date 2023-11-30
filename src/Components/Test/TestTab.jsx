@@ -16,17 +16,17 @@ export default function Example({ contests }) {
   console.log(article);
 
   return (
-    <div className="w-full  px-2 py-16 sm:px-0">
+    <div className="w-full  px-2 py-16 sm:px-0 min-h-[100vh]">
       <Tab.Group>
         <Tab.List className="flex space-x-1 w-full text-center justify-center items-center rounded-xl bg-blue-900/20 p-1">
           <Tab
             className={({ selected }) =>
               classNames(
                 "w-full rounded-lg py-2.5 text-sm font-medium  ",
-                "ring-white/60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2",
+                "ring-white/60 ring-offset-2 ring-offset-[#ac40ff] focus:outline-none focus:ring-2",
                 selected
-                  ? "bg-white text-blue-700 shadow"
-                  : "text-blue-500 hover:bg-white/[0.12] hover:text-white"
+                  ? "bg-white text-[#B258F5] shadow"
+                  : "text-[#602BF7] hover:bg-white/[0.12] hover:text-white"
               )
             }
           >
@@ -36,10 +36,10 @@ export default function Example({ contests }) {
             className={({ selected }) =>
               classNames(
                 "w-full rounded-lg py-2.5 text-sm font-medium leading-5",
-                "ring-white/60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2",
+                "ring-white/60 ring-offset-2 ring-offset-[#ac40ff] focus:outline-none focus:ring-2",
                 selected
-                  ? "bg-white text-blue-700 shadow"
-                  : "text-blue-500 hover:bg-white/[0.12] hover:text-white"
+                  ? "bg-white text-[#ac40ff] shadow"
+                  : "text-[#602BF7] hover:bg-white/[0.12] hover:text-white"
               )
             }
           >
@@ -49,10 +49,10 @@ export default function Example({ contests }) {
             className={({ selected }) =>
               classNames(
                 "w-full rounded-lg py-2.5 text-sm font-medium leading-5",
-                "ring-white/60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2",
+                "ring-white/60 ring-offset-2 ring-offset-[#ac40ff] focus:outline-none focus:ring-2",
                 selected
-                  ? "bg-white text-blue-700 shadow"
-                  : "text-blue-500 hover:bg-white/[0.12] hover:text-white"
+                  ? "bg-white text-[#ac40ff] shadow"
+                  : "text-[#602BF7] hover:bg-white/[0.12] hover:text-white"
               )
             }
           >
@@ -63,10 +63,10 @@ export default function Example({ contests }) {
             className={({ selected }) =>
               classNames(
                 "w-full rounded-lg py-2.5 text-sm font-medium leading-5",
-                "ring-white/60 ring-offset-2 ring-offset-blue-400 focus:outline-none focus:ring-2",
+                "ring-white/60 ring-offset-2 ring-offset-[#ac40ff] focus:outline-none focus:ring-2",
                 selected
-                  ? "bg-white text-blue-700 shadow"
-                  : "text-blue-500 hover:bg-white/[0.12] hover:text-white"
+                  ? "bg-white text-[#B258F5] shadow"
+                  : "text-[#602BF7] hover:bg-white/[0.12] hover:text-white"
               )
             }
           >
@@ -74,35 +74,79 @@ export default function Example({ contests }) {
           </Tab>
         </Tab.List>
 
-        <Tab.Panels className="mt-2">
+        <Tab.Panels className="mt-8">
           <Tab.Panel>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-              {article?.map((contest) => (
-                <ContestCard contest={contest} key={contest._id}></ContestCard>
+          <div >
+              {
+                article?.length > 0 ? <>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+                {article?.map((contest) => (
+                <ContestCard key={contest._id} contest={contest}></ContestCard>
               ))}
+                </div>
+                
+                </>
+                :
+                <>
+                <div><h1 className="text-xl text-center font-bold text-[#4a2e97]">No Data Available In This Contest</h1></div>
+                </>
+              }
             </div>
           </Tab.Panel>
           <Tab.Panel>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-              {business?.map((contest) => (
+          <div >
+              {
+                business?.length > 0 ? <>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+                {business?.map((contest) => (
                 <ContestCard key={contest._id} contest={contest}></ContestCard>
               ))}
+                </div>
+                
+                </>
+                :
+                <>
+                <div><h1 className="text-xl text-center font-bold text-[#4a2e97]">No Data Available In This Contest</h1></div>
+                </>
+              }
             </div>
           </Tab.Panel>
 
           <Tab.Panel>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-              {gaming?.map((contest) => (
+          <div >
+              {
+                gaming?.length > 0 ? <>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+                {gaming?.map((contest) => (
                 <ContestCard key={contest._id} contest={contest}></ContestCard>
               ))}
+                </div>
+                
+                </>
+                :
+                <>
+                <div><h1 className="text-xl text-center font-bold text-[#4a2e97]">No Data Available In This Contest</h1></div>
+                </>
+              }
             </div>
           </Tab.Panel>
 
           <Tab.Panel>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
-              {medical?.map((contest) => (
+            <div >
+              {
+                medical?.length > 0 ? <>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+                {medical?.map((contest) => (
                 <ContestCard key={contest._id} contest={contest}></ContestCard>
               ))}
+                </div>
+                
+                </>
+                :
+                <>
+                <div><h1 className="text-xl text-center font-bold text-[#4a2e97]">No Data Available In This Contest</h1></div>
+                </>
+              }
             </div>
           </Tab.Panel>
         </Tab.Panels>

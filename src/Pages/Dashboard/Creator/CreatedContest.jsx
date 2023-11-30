@@ -6,10 +6,20 @@ import { FaCheck, FaEdit, FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import DashTitle from "../../../Components/Shared/DashTitle";
+import UseCreatorStats from "../../../Hooks/useCreatorStats";
 
 const CreatedContest = () => {
   const {user}=UseAuth()
-  console.log(user?.email);
+   
+ 
+
+
+  const creatorStats=UseCreatorStats()
+  console.log(creatorStats?.data?.myContest);
+  // const fat=UseCreatorStats()
+ 
+
+
   const axiosSecure=UseAxiosSecure()
   const { data, refetch } = useQuery({
     queryKey: ["creator-contests"],
@@ -56,18 +66,21 @@ const CreatedContest = () => {
        
       <div className="min-h-[calc(100vh)]">
         <DashTitle title={'My Created Contest'}></DashTitle>
-      <div className="flex  justify-between items-center my-5 max-w-4xl mx-auto">
+
+      {
+        creatorStats?.data?.myContest > 0 ? <>
+              <div className="flex  justify-between items-center my-5 max-w-4xl mx-auto px-5">
         <h1 className="uppercase text-md font-semibold">
           my submitted contest: {data?.length}
         </h1>
       </div>
-      <div className="max-w-4xl mx-auto mb-20">
+      <div className="max-w-4xl mx-auto mb-20 px-2">
         <div className="flex flex-col">
           <div className="overflow-x-auto shadow-md sm:rounded-lg">
             <div className="inline-block min-w-full align-middle">
               <div className="overflow-hidden ">
                 <table className="min-w-full divide-y divide-gray-200 table-fixed  ">
-                  <thead className="bg-orange-500 text-white">
+                  <thead className="bg-[#602BF7] text-white">
                     <tr>
                       <th scope="col" className="p-4">
                         <div className="flex items-center"></div>
@@ -104,7 +117,7 @@ const CreatedContest = () => {
                   <tbody className="bg-white divide-y divide-gray-200  ">
                     {data?.map((item, idx) => (
                       
-                        <tr key={item._id} className="hover:bg-gray-100 dark:hover:bg-orange-200">
+                        <tr key={item._id} className="hover:bg-gray-100 dark:hover:bg-purple-200">
                           <td className="p-4 w-4">
                             <div className="flex items-center">{idx + 1}</div>
                           </td>
@@ -151,6 +164,16 @@ const CreatedContest = () => {
           </div>
         </div>
       </div>
+        </>
+        :
+        <>
+        <div className="w-full h-[20vh] flex justify-center items-center font-bold text-xl"><h1>No Data availavle</h1></div>
+        </>
+      }
+
+
+
+
       </div>
     </>
   );

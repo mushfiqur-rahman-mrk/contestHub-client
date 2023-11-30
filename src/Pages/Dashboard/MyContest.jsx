@@ -5,15 +5,17 @@ import DashContainer from "../../Components/Shared/DashContainer";
 import DashTitle from "../../Components/Shared/DashTitle";
 import MyWinning from "./MyWinning";
 import MyContestTableRow from "./MyContestTableRow";
+import UseUserStats from "../../Hooks/useUserStats";
 
 const MyContest = () => {
   const { user } = UseAuth();
   const axiosSecure = UseAxiosSecure();
+  const { winningCount, participationCount } = UseUserStats();
   const { data, refetch } = useQuery({
     queryKey: ["registerd-contest"],
     queryFn: async () => {
       // const res = await axiosSecure.get(`/payment/${user?.email}`);
-      const res = await axiosSecure.get(`http://localhost:5000/payment/user/${user?.email}`);
+      const res = await axiosSecure.get(`https://contest-hub-server-jet.vercel.app/payment/user/${user?.email}`);
       // const res = await axiosSecure.get("/users",{
       //   headers:{authorization: `Bearer ${localStorage.getItem('access-token')}`}
       // });
@@ -25,7 +27,7 @@ const MyContest = () => {
   
   console.log(data);
   return (
-    <div className="min-h-[calc(100vh)]">
+    <div className="min-h-[calc(100vh)] px-5">
       <DashTitle title={'My Contest'}></DashTitle>
       <DashContainer>
       <div className="flex  justify-between items-center my-5 max-w-4xl mx-auto">
@@ -33,13 +35,18 @@ const MyContest = () => {
           total participation: {data?.length}{" "}
         </h1>
       </div>
-      <div className="max-w-4xl mx-auto mb-20">
+     
+
+
+      {data?.length > 0 ? (
+          <>
+             <div className="max-w-4xl mx-auto mb-20">
         <div className="flex flex-col">
           <div className="overflow-x-auto shadow-md sm:rounded-lg">
             <div className="inline-block min-w-full align-middle">
               <div className="overflow-hidden ">
                 <table className="min-w-full divide-y divide-gray-200 table-fixed  ">
-                  <thead className="bg-orange-500 text-white">
+                  <thead className="bg-purple-600 text-white">
                     <tr>
                       <th scope="col" className="p-4">
                         <div className="flex items-center"></div>
@@ -81,7 +88,13 @@ const MyContest = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> 
+          </>
+        ) : (
+          <>
+             <div><h1 className="text-center text-[#602BF7] font-bold text-xl mt-10">No Data Available</h1></div>
+          </>
+        )}
       </DashContainer>
       
     </div>

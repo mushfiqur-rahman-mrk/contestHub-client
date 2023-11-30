@@ -27,10 +27,10 @@ const RegButton = ({deadline,id,price}) => {
        
       <Link to={`/payment/${id}`}>
       <button
-        className={`bg-blue-500 text-white px-4 py-2 rounded mt-5 ${isRegistrationDisabled ? 'cursor-not-allowed opacity-50' : 'hover:bg-blue-700'}`}
+        className={`bg-gradient-to-r from-[#602BF7] to-[#B258F5] text-white px-4 py-2 rounded mt-5 ${isRegistrationDisabled ? 'cursor-not-allowed opacity-50' : 'hover:bg-purple-600'}`}
         disabled={isRegistrationDisabled}
       >
-        Only ${price} to register
+        Register Now
       </button>
       </Link>
       

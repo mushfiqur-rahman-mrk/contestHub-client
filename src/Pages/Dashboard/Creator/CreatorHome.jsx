@@ -11,7 +11,7 @@ const CreatorHome = () => {
     const {data}=useQuery({
         queryKey:['creator-stats'],
         queryFn: async ()=>{
-            const res = await axios.get(`http://localhost:5000/creator-stats/${user?.email}`)
+            const res = await axios.get(`https://contest-hub-server-jet.vercel.app/creator-stats/${user?.email}`)
             return res.data;
         }
     })

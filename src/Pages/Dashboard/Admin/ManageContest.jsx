@@ -4,6 +4,7 @@ import { BiEdit, BiTrash } from "react-icons/bi";
 import { FaCheck, FaTrashAlt } from "react-icons/fa";
 import { toast } from "react-toastify";
 import ManageRow from "./ManageRow";
+import DashTitle from "../../../Components/Shared/DashTitle";
 
 const ManageContest = () => {
   const axiosSecure=UseAxiosSecure()
@@ -25,19 +26,16 @@ const ManageContest = () => {
 
 
   return (
-    <>
-        <div className="flex  justify-between items-center my-10 max-w-3xl mx-auto">
-        <h1 className="uppercase text-lg font-semibold">
-          pending contest: {contests?.length}
-        </h1>
-      </div>
-      <div className="max-w-4xl mx-auto mb-20">
+    <div className="min-h-[100vh] px-5">
+      <DashTitle title={'Manage Contest'}></DashTitle>
+         
+      <div className="max-w-4xl mx-auto my-20">
         <div className="flex flex-col">
           <div className="overflow-x-auto shadow-md sm:rounded-lg">
             <div className="inline-block min-w-full align-middle">
               <div className="overflow-hidden ">
                 <table className="min-w-full divide-y divide-gray-200 table-fixed  ">
-                  <thead className="bg-orange-500 text-white">
+                  <thead className="bg-[#602BF7] text-white">
                     <tr>
                       <th scope="col" className="p-4">
                         <div className="flex items-center"></div>
@@ -88,7 +86,7 @@ const ManageContest = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

@@ -290,7 +290,7 @@ const AddContest = () => {
   return (
     <>
     <DashTitle title={'Add New Contest'}></DashTitle>
-      <div className="mx-5 my-10 space-y-2">
+      <div className="mx-5 my-10 space-y-2 px-5">
       <form onSubmit={handleSubmit(onSubmit)}>
           {/* Contest name */}
           <div className="mb-4">
@@ -305,8 +305,8 @@ const AddContest = () => {
               id="default-input"
               required
               {...register("name")}
-              placeholder="Recipe Name"
-              className="border w-full rounded-md p-1 outline-orange-400"
+              placeholder="Contest Name"
+              className="border w-full rounded-md p-1 outline-[#602BF7]"
             />
           </div>
           {/* contest prize */}
@@ -323,8 +323,8 @@ const AddContest = () => {
               id="default-input"
               required
               {...register("prize")}
-              placeholder="Recipe Name"
-              className="border w-full rounded-md p-1 outline-orange-400"
+              placeholder="Contest Name"
+              className="border w-full rounded-md p-1 outline-[#602BF7]"
             />
           </div>
 
@@ -340,32 +340,15 @@ const AddContest = () => {
             rows="2"
             required
             {...register("instructions")}
-            className="block p-2.5 w-full text-sm  border rounded-md"
+            className="block p-2.5 w-full text-sm  border rounded-md outline-[#602BF7]"
             placeholder="Write your thoughts here..."
           ></textarea>
           </div>
 
-          <div className="mb-4">
-            <label
-               
-              className="block mb-2 text-sm font-medium text-gray-700 "
-            >
-              Contest Deadline*
-            </label>
-            <input
-              type="date"
-              id="default-input"
-              required
-              {...register("deadline")}
-              placeholder="Recipe Name"
-              className="border w-full rounded-md p-1 outline-orange-400"
-            />
-             
-          </div>
+           
           
-          <div className="grid grid-cols-2 gap-3 justify-center  ">
-            {/* select type */}
-            <div>
+           {/* select type */}
+           <div className="mb-5">
               <label
                  
                 className="block mb-2 text-sm font-medium text-gray-700 "
@@ -378,7 +361,7 @@ const AddContest = () => {
                 aria-invalid={errors.category ? "true" : "false"}
                 id="small"
                 
-                className="border w-full rounded-md p-1 outline-orange-400"
+                className="border w-full rounded-md p-1 outline-[#602BF7]"
               >
                 <option disabled value={'default'}>
                   Choose a contest type
@@ -393,6 +376,25 @@ const AddContest = () => {
                   <p role="alert">First name is required</p>
                 )}
             </div>
+          
+          <div className="grid grid-cols-2 gap-3 justify-center  ">
+          <div className="mb-4">
+            <label
+               
+              className="block mb-2 text-sm font-medium text-gray-700 "
+            >
+              Contest Deadline*
+            </label>
+            <input
+              type="date"
+              id="default-input"
+              required
+              {...register("deadline")}
+              placeholder="Recipe Name"
+              className="border w-full rounded-md p-1 outline-[#602BF7]"
+            />
+             
+          </div>
             {/* price */}
             <div className="mb-4">
               <label
@@ -408,7 +410,7 @@ const AddContest = () => {
                 required
                 {...register("price")}
                 placeholder="price"
-                className="border w-full rounded-md p-1 outline-orange-400"
+                className="border w-full rounded-md p-1 outline-[#602BF7]"
               />
             </div>
           </div>
@@ -422,7 +424,7 @@ const AddContest = () => {
             rows="4"
             required
             {...register("description")}
-            className="block p-2.5 w-full text-sm  border rounded-md"
+            className="block p-2.5 w-full text-sm  border rounded-md outline-[#602BF7]"
             placeholder="Write your thoughts here..."
           ></textarea>
 
@@ -434,7 +436,7 @@ const AddContest = () => {
               Contest Image
             </label>
             <input
-              className="block w-full text-sm border rounded-md"
+              className="block w-full text-sm border rounded-md outline-[#602BF7]"
               id="file_input"
               type="file"
               {...register("image",{required:true})}
@@ -443,7 +445,7 @@ const AddContest = () => {
 
            
 
-          <button className="px-3 py-2 bg-orange-500 flex justify-center items-center gap-3 rounded-lg mt-4 text-white"> Add item</button>
+          <button className="px-10 py-3  bg-gradient-to-r from-[#602BF7] to-[#B258F5] flex justify-center items-center gap-3 rounded-lg mt-10 text-white"> Add item</button>
         </form>
       </div>
     </>

@@ -3,7 +3,6 @@ import MyContestTableRow from "../MyContestTableRow";
 
 const PannelTable = ({ item, idx,refetch,okfetch }) => {
     const {_id,email,price,transactionId,deadline,ConName,type,creatorEmail,contestId}=item || {}
-
     const handleWinner=(email)=>{
         console.log('clicked',email);
         const winner={
@@ -11,7 +10,7 @@ const PannelTable = ({ item, idx,refetch,okfetch }) => {
             winnerEmail:email,
             winnerName: '',
         }
-        axios.patch(`http://localhost:5000/contest/winner/${contestId}`,winner)
+        axios.patch(`https://contest-hub-server-jet.vercel.app/contest/winner/${contestId}`,winner)
         .then(res=>{
             if(res.data.modifiedCount > 0){
                 console.log('successful');
@@ -23,7 +22,7 @@ const PannelTable = ({ item, idx,refetch,okfetch }) => {
   return (
     <>
  
-      <tr className="hover:bg-gray-100 dark:hover:bg-orange-200">
+      <tr className="hover:bg-gray-100 dark:hover:bg-purple-200">
         <td className="p-4 w-4">
           <div className="flex items-center">{idx + 1}</div>
         </td>

@@ -3,6 +3,7 @@ import UseAxiosSecure from "../../Hooks/useAxiosSecure";
  
 import Example from "../../Components/Test/TestTab";
 import Container from "../../Components/Shared/Container";
+import Title from "../../Components/Shared/Title";
  
 
 const AllContest = () => {
@@ -20,8 +21,10 @@ const AllContest = () => {
   console.log(contests);
   return (
     <div className="">
-      <div className="bg-red-500 w-full h-60 mb-5"></div>
- 
+      <div className="bg-gradient-to-r from-[#341786] to-[#0E0E30] w-full h-60 mb-5 relative">
+        <div className="absolute bottom-0 right-0 mb-[-10px]"><img src="/src/assets/10009.png" alt="" /></div>
+      </div>
+      <Title title={'All Contest'}></Title>
        <Container>
        <Example contests={contests}></Example>
        </Container>

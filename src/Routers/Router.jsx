@@ -27,8 +27,8 @@ import PrivetRoute from "./PrivetRoute";
 const Router = createBrowserRouter([
   {
     path: "/",
-    // errorElement:<Error></Error>,
     element: <MainLayout></MainLayout>,
+    // errorElement:<Error></Error>,
     children:[
         {
             index:true,

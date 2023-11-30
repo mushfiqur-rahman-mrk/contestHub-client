@@ -16,7 +16,7 @@ const SubmissionTabPnel = ({ item }) => {
   const { data, refetch } = useQuery({
     queryKey: ["Single-submission"],
     queryFn: async () => {
-      const res = await axios.get(`http://localhost:5000/payment`);
+      const res = await axios.get(`https://contest-hub-server-jet.vercel.app/payment`);
       return res.data
     },
   });
@@ -41,7 +41,7 @@ const SubmissionTabPnel = ({ item }) => {
         <div>
         {
             checkWinner?.isWinner ? <>
-                <div className="w-full bg-green-400 h-96 flex justify-center items-center">
+                <div className="w-full bg-[#602BF7] text-white h-96 flex justify-center items-center">
                     <h1 className="text-xl">Winner of this Contest is {checkWinner?.winnerEmail}</h1>
                 </div>
             </>
@@ -53,7 +53,7 @@ const SubmissionTabPnel = ({ item }) => {
             <div className="inline-block min-w-full align-middle">
               <div className="overflow-hidden ">
                 <table className="min-w-full divide-y divide-gray-200 table-fixed  ">
-                  <thead className="bg-orange-500 text-white">
+                  <thead className="bg-[#602BF7] text-white">
                     <tr>
                       <th scope="col" className="p-4">
                         <div className="flex items-center"></div>
@@ -78,7 +78,7 @@ const SubmissionTabPnel = ({ item }) => {
                       </th>
                       <th
                         scope="col"
-                        className="py-3 px-6 text-xs font-medium text-center tracking-wider text-left uppercase text-white"
+                        className="py-3 px-6 text-xs font-medium text-center tracking-wider  uppercase text-white"
                       >
                         Status
                       </th>

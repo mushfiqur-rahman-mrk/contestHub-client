@@ -73,7 +73,7 @@ const handleLogout=()=>{
             </Link>
 
             <Menu.Item>
-              <button onClick={handleLogout} className="bg-blue-300 block w-full px-4 py-2 text-left text-sm">
+              <button onClick={handleLogout} className="bg-[#602BF7] block w-full px-4 py-2 text-left text-sm">
                 sign out
               </button>
             </Menu.Item>

@@ -22,7 +22,7 @@ const TabCard = ({item,selected}) => {
   return (
     <>
         <div onClick={()=>handleClick(item?.name)}>
-            <h1  className={`flex flex-col mb-5 justify-center text-neutral-500 items-center  p-3 border-b-2 hover:text-neutral-800 cursor-pointer transition ${selected ? 'border-black text-neutral-950' : ''}`}>{item.name}</h1>
+            <h1  className={`flex flex-col mb-5 justify-center text-neutral-500 items-center  p-3 border-b-2 hover:text-neutral-800 cursor-pointer transition ${selected ? 'border-[#602BF7] text-neutral-950 bg-gradient-to-b from-transparent to-[#602BF7] font-semibold' : ''}`}>{item.name}</h1>
         </div>
     </>
   );

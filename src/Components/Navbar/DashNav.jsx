@@ -2,9 +2,12 @@ import { BsCalendarEvent, BsHouse } from "react-icons/bs";
 import { NavLink } from "react-router-dom";
 import UseAdmin from "../../Hooks/useAdmin";
 import UseCreator from "../../Hooks/useCreator";
+import { FaBars, FaTimes } from "react-icons/fa";
+import { useState } from "react";
 
 const DashNav = () => {
   const {isAdmin}=UseAdmin()
+  const [open, setOpen] = useState(false);
   
   const {isCreator}=UseCreator()
   
@@ -16,7 +19,7 @@ const DashNav = () => {
         },
         {
           id: 2,
-          text: 'My winning Contest',
+          text: 'Winning Contest',
           path: '/dash-board/my-winning-contest',
         },
         {
@@ -105,7 +108,7 @@ const DashNav = () => {
     },
     {
       id: 20,
-      text: 'My winning Contest',
+      text: 'Winning Contest',
       path: '/dash-board/my-winning-contest',
     },
     {
@@ -127,7 +130,20 @@ const DashNav = () => {
  
   return (
     <>
-       <div className="flex flex-col items-center gap-5 my-10">
+    
+    <div className="relative">
+      
+      <div className="md:hidden text-xl absolute top-2  right-0" onClick={() => setOpen(!open)}>
+            {open === true ? (
+              <FaTimes className="text-black sticky"></FaTimes>
+            ) : (
+              <FaBars className="text-black sticky"></FaBars>
+            )}
+      </div>
+      {/* desktop nav */}
+      <div className="hidden md:block">
+      <div className="flex flex-col items-center gap-5 my-10 px-2">
+        <img src="/src/assets/logo.png" className="w-48 mb-8" alt="" />
                 {/* {
                     navLinks?.map(link=> (
                         <NavLink to={link.path} key={link.id}
@@ -183,6 +199,75 @@ const DashNav = () => {
                 ))
                 }
        </div>
+      </div>
+    </div>
+    {/* mobile dash nav */}
+    <div className="w-20">
+    
+    <div className={`bg-gradient-to-r bg-blue-500 z-30 space-y-4 pt-5 absolute w-64 h-full ${
+            open ? "top-0 left-0 transition-all duration-100" : "hidden"
+          }`}>
+      <div onClick={() => setOpen(!open)} className="absolute top-2 right-5">
+      <FaTimes className="dark:text-white text-xl"></FaTimes>
+      </div>
+      <div className="flex flex-col items-center gap-5 my-10">
+                {/* {
+                    navLinks?.map(link=> (
+                        <NavLink to={link.path} key={link.id}
+                            className={({isActive})=> isActive ? 'px-5 text-[#EEFF25] font-semibold' : 'px-5 text-white font-semibold'}
+                        >
+                            {link.text}
+                        </NavLink>
+                    ))
+                } */}
+                {/* admin nav links */}
+              {
+                isAdmin && adminNavLinks.map(link=> (
+                  <NavLink to={link.path} key={link.id}
+                      className={({isActive})=> isActive ? 'px-5 text-[#EEFF25] font-semibold' : 'px-5 text-white font-semibold'}
+                  >
+                      {link.text}
+                  </NavLink>
+              ))
+              }  
+
+              {/* creator nav links */}
+              {
+                isCreator && creatorNavLinks.map(link=> (
+                  <NavLink to={link.path} key={link.id}
+                      className={({isActive})=> isActive ? 'px-5 text-[#EEFF25] font-semibold' : 'px-5 text-white font-semibold'}
+                  >
+                      {link.text}
+                  </NavLink>
+              ))
+              }
+              
+                {
+                  !isUser &&  userNavLinks.map(link=> (
+                    <NavLink to={link.path} key={link.id}
+                        className={({isActive})=> isActive ? 'px-5 text-[#EEFF25] font-semibold' : 'px-5 text-white font-semibold'}
+                    >
+                        {link.text}
+                    </NavLink>
+                ))
+                }
+ 
+             
+       </div>
+       <hr />
+       <div className="flex justify-center items-center mt-5">
+       {
+                  homeLinks.map(link=> (
+                    <NavLink to={link.path} key={link.id}
+                        className={({isActive})=> isActive ? 'px-5 text-[#EEFF25] font-semibold' : 'px-5 text-white font-semibold'}
+                    >
+                        {link.text}
+                    </NavLink>
+                ))
+                }
+       </div>
+      </div>
+    </div>
     </>
   );
 };

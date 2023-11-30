@@ -1,8 +1,8 @@
 const StatsCard = ({data}) => {
   return (
     <>
-      <div className="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-4">
-        <div className="min-w-0 rounded-lg shadow-xs overflow-hidden bg-gray-200">
+      <div className="grid gap-6 mb-8 md:grid-cols-2 xl:grid-cols-3 px-5">
+        <div className="min-w-0 rounded-lg shadow-xs overflow-hidden bg-[#eddff8]">
           <div className="p-4 flex items-center">
             <div className="p-3 rounded-full text-orange-500 dark:text-orange-100 bg-orange-100 dark:bg-orange-500 mr-4">
               <svg fill="currentColor" viewBox="0 0 20 20" className="w-5 h-5">
@@ -10,7 +10,7 @@ const StatsCard = ({data}) => {
               </svg>
             </div>
             <div>
-              <p className="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+              <p className="mb-2 text-sm font-medium text-gray-900">
                 Total users
               </p>
               <p className="text-lg font-semibold text-gray-700">
@@ -19,7 +19,7 @@ const StatsCard = ({data}) => {
             </div>
           </div>
         </div>
-        <div className="min-w-0 rounded-lg shadow-xs overflow-hidden bg-white dark:bg-gray-800">
+        <div className="min-w-0 rounded-lg shadow-xs overflow-hidden bg-[#eddff8]">
           <div className="p-4 flex items-center">
             <div className="p-3 rounded-full text-green-500 dark:text-green-100 bg-green-100 dark:bg-green-500 mr-4">
               <svg fill="currentColor" viewBox="0 0 20 20" className="w-5 h-5">
@@ -31,10 +31,10 @@ const StatsCard = ({data}) => {
               </svg>
             </div>
             <div>
-              <p className="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+              <p className="mb-2 text-sm font-medium text-gray-900">
                 Total Contest
               </p>
-              <p className="text-lg font-semibold text-gray-700 dark:text-gray-200">
+              <p className="text-lg font-semibold text-gray-700 ">
                 {data?.totalContest}
               </p>
             </div>
@@ -43,7 +43,7 @@ const StatsCard = ({data}) => {
 
  
 
-        <div className="min-w-0 rounded-lg shadow-xs overflow-hidden bg-white dark:bg-gray-800">
+        <div className="min-w-0 rounded-lg shadow-xs overflow-hidden bg-[#eddff8]">
           <div className="p-4 flex items-center">
             <div className="p-3 rounded-full text-teal-500 dark:text-teal-100 bg-teal-100 dark:bg-teal-500 mr-4">
               <svg fill="currentColor" viewBox="0 0 20 20" className="w-5 h-5">
@@ -55,10 +55,10 @@ const StatsCard = ({data}) => {
               </svg>
             </div>
             <div>
-              <p className="mb-2 text-sm font-medium text-gray-600 dark:text-gray-400">
+              <p className="mb-2 text-sm font-medium text-gray-900">
                 Pending contest
               </p>
-              <p className="text-lg font-semibold text-gray-700 dark:text-gray-200">
+              <p className="text-lg font-semibold text-gray-700">
                 {data?.totalPending}
               </p>
             </div>

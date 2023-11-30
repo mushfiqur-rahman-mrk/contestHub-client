@@ -26,12 +26,12 @@ const ContestCard = ({ contest }) => {
                   {description.slice(0,50)}
                 </p>
                 <Link to={`/contest-details/${_id} `}>
-                <button className="mt-6 py-2 px-4 bg-yellow-400 text-gray-800 font-bold rounded-lg shadow-md hover:shadow-lg transition duration-300">
+                <button className="bg-gradient-to-r from-[#602BF7] to-[#B258F5]  mt-6 py-2 px-4  text-white font-bold rounded-lg shadow-md hover:shadow-lg transition duration-300">
                     Show Detail
                 </button>
                 </Link>
               </div>
-              <div className="absolute top-1 right-1 py-2 px-1 bg-white rounded-xl">
+              <div className="absolute top-1 right-1  px-1 bg-white rounded-xl">
                 <span className="text-md flex justify-center items-center gap-1"><FaUser/> {participation}</span> 
               </div>
             </div>
@@ -40,5 +40,7 @@ const ContestCard = ({ contest }) => {
     </>
   );
 };
-
+//602BF7 lite
+// #B258F5  pink
+//  0E0E30      dark
 export default ContestCard;

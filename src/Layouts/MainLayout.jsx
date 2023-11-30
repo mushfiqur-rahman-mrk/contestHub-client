@@ -7,7 +7,7 @@ import { BounceLoader } from "react-spinners";
 const MainLayout = () => {
   const {loading}=UseAuth()
   if(loading){
-    return <BounceLoader color="#36d7b7" />
+    return <div className="h-screen w-full flex justify-center items-center"><BounceLoader color="#602BF7" /></div>
   }
   return (
     <>

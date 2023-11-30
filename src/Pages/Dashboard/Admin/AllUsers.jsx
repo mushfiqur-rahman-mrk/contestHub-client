@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import UseAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { FaUser } from "react-icons/fa";
 import { toast } from "react-toastify";
+import DashTitle from "../../../Components/Shared/DashTitle";
 
 const AllUsers = () => {
   const axiosSecure=UseAxiosSecure()
@@ -36,8 +37,10 @@ const AllUsers = () => {
 
   return (
     <>
-    <div className="flex  justify-between items-center my-10 max-w-3xl mx-auto">
-        <h1 className="uppercase text-lg font-semibold">
+      <div className="min-h-[calc(100vh)] px-5 mb-10">
+        <DashTitle title={'All Users'}></DashTitle>
+      <div className="flex  justify-between items-center max-w-3xl mx-auto">
+        <h1 className="uppercase text-lg font-semibold mb-4">
           total users: {users?.length}{" "}
         </h1>
       </div>
@@ -47,7 +50,7 @@ const AllUsers = () => {
             <div className="inline-block min-w-full align-middle">
               <div className="overflow-hidden ">
                 <table className="min-w-full divide-y divide-gray-200 table-fixed  ">
-                  <thead className="bg-orange-500 text-white">
+                  <thead className="bg-[#602BF7] text-white">
                     <tr>
                       <th scope="col" className="p-4">
                         <div className="flex items-center"></div>
@@ -84,7 +87,7 @@ const AllUsers = () => {
                   <tbody className="bg-white divide-y divide-gray-200  ">
                     {users?.map((item, idx) => (
                       
-                        <tr key={item._id} className="hover:bg-gray-100 dark:hover:bg-orange-200">
+                        <tr key={item._id} className="hover:bg-gray-100 dark:hover:bg-[#cec0f5]">
                           <td className="p-4 w-4">
                             <div className="flex items-center">{idx + 1}</div>
                           </td>
@@ -99,7 +102,7 @@ const AllUsers = () => {
                              {
                               item?.role === 'admin' ? <p className="text-blue-500">Admin</p>
                               :
-                              item?.role === 'creator' ? <p className="text-yellow-500">Creator</p>
+                              item?.role === 'creator' ? <p className="text-orange-500">Creator</p>
                               :
                               <p className="text-green-500">User</p>
                              }
@@ -129,6 +132,7 @@ const AllUsers = () => {
             </div>
           </div>
         </div>
+      </div>
       </div>
         
     </>

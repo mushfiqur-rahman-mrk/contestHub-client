@@ -11,7 +11,7 @@ const UseWinner = () => {
   const { data: contestWinner, refetch:okfetch } = useQuery({
     queryKey: ["contestWinner"],
     queryFn: async () => {
-      const winRes = await axios.get(`http://localhost:5000/contest`);
+      const winRes = await axios.get(`https://contest-hub-server-jet.vercel.app/contest`);
       return winRes.data;
     },
   });

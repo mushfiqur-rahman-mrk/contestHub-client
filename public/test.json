@@ -48,3 +48,52 @@
 ]
 
  
+[
+    {
+      "name": "Creative Voices Article Contest",
+      "type": "Online",
+      "price": "$20 entry fee",
+      "prize": "$500 for the winner",
+      "instructions": "Submit a 750-word article on the theme 'The Power of Words.' Entries must be original and unpublished.",
+      "deadline": "March 15, 2023",
+      "description": "Unleash your creativity in the Creative Voices Article Contest! We invite writers to explore the transformative impact of words. Craft a compelling 750-word article that captivates and inspires. The winner will receive $500 and publication of their work. Don't miss the chance to have your voice heard!",
+      "participation": "Open to writers of all levels",
+      "image": "Contest banner with a quill and an open book."
+    },
+    {
+      "name": "Eco-Writers Challenge",///////////
+      "type": "Environmental",
+      "price": "Free",
+      "prize": "Green writing retreat for the winner",
+      "instructions": "Write a 500-word article on sustainable living practices. Submissions must promote eco-friendly initiatives.",
+      "deadline": "April 30, 2023",
+      "description": "Contribute to a greener world in the Eco-Writers Challenge! Craft a 500-word article highlighting sustainable living practices. The winner earns a green writing retreat and the chance to make a positive impact. Join us in promoting environmental awareness through the power of your words!",
+      "participation": "Open to all eco-conscious writers",
+      "image": "Earth-themed banner with eco-friendly symbols."
+    },
+    {
+      "name": "Tech Innovators Article Prize",////////////done
+      "type": "Technology",
+      "price": "$15 entry fee",
+      "prize": "$750 and featured publication",
+      "instructions": "Submit a 800-word article on the latest breakthroughs in technology and their impact on society.",
+      "deadline": "May 20, 2023",
+      "description": "Dive into the future with the Tech Innovators Article Prize! Craft an 800-word article on cutting-edge technology and its societal implications. The winning entry will receive $750 and be featured in a prominent publication. Showcase your tech-savvy insights now!",
+      "participation": "Open to tech enthusiasts and writers",
+      "image": "Futuristic tech imagery with circuit elements."
+    },
+    {
+      "name": "Historical Perspectives Essay Contest",/////////done
+      "type": "Historical",
+      "price": "$10 entry fee",
+      "prize": "$500 and historical book collection",
+      "instructions": "Write a 700-word essay on a significant historical event or figure.",
+      "deadline": "June 10, 2023",
+      "description": "Uncover the past in the Historical Perspectives Essay Contest! Craft a 700-word essay delving into a historical event or figure. The winner will receive $500 and a curated collection of historical books. Bring history to life through your compelling narrative!",
+      "participation": "Open to history enthusiasts and writers",
+      "image": "Vintage parchment and quill imagery."
+    },
+    {
+      "name": "Wellness Words Challenge",
+      "type
+  
