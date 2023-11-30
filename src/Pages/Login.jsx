@@ -2,11 +2,13 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FcGoogle } from "react-icons/fc";
 import UseAuth from "../Hooks/useAuth";
 import { toast } from "react-toastify";
+import UseAxiosPublic from "../Hooks/useAxiosPublic";
 
 const Login = () => {
-  const {logIn}=UseAuth()
+  const {logIn,google}=UseAuth()
   const navigate=useNavigate()
   const location=useLocation()
+  const axiosPublic=UseAxiosPublic()
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -30,6 +32,34 @@ const Login = () => {
      })
     })
   };
+
+  const handleGoogle=()=>{
+    console.log('clicked');
+    google()
+    .then(result=>{
+        console.log(result.user);
+        const userInfo = {
+          email:result.user?.email,
+          name:result.user?.displayName,
+          image:result.user?.photoURL
+        }
+        axiosPublic.post('/users',userInfo)
+        .then(res=>{
+          console.log(res.data);
+          navigate('/')
+          if (res.data.insertedId) {
+            toast.success("Account created successfullyyy",{position:'top-center',autoClose: 1000});
+          }
+        })
+
+    })
+    .catch()
+
+}
+
+
+
+
   return (
     <>
       <div className="w-full h-screen">
@@ -79,7 +109,8 @@ const Login = () => {
                 </Link>{" "}
               </h1>
               <p className="text-center">Or sign up with</p>
-              <div className="flex justify-center items-center gap-3 bg-slate-100 px-2 py-2 rounded-lg ">
+
+              <div onClick={handleGoogle} className="flex justify-center items-center cursor-pointer gap-3 bg-slate-100 px-2 py-2 rounded-lg ">
              <FcGoogle className="text-2xl"></FcGoogle> <p>Continue with Google</p>
              </div>
             </div>
@@ -91,3 +122,5 @@ const Login = () => {
 };
 
 export default Login;
+
+ 

@@ -6,58 +6,21 @@ import { toast } from "react-toastify";
 import UseAxiosPublic from "../Hooks/useAxiosPublic";
 import { useForm } from "react-hook-form";
 import UseAxiosSecure from "../Hooks/useAxiosSecure";
+import { useState } from "react";
 
 const image_hosting_key= import.meta.env.VITE_IMAGEbb_KEY;
  
 const image_hosting_api= `https://api.imgbb.com/1/upload?key=${image_hosting_key}`
 
 const Register = () => {
+  const [error, setError] = useState("");
   const { register,formState: { errors }, handleSubmit } = useForm();
   const {createUser,google}=UseAuth()
   const navigate=useNavigate()
   const axiosPublic=UseAxiosPublic()
   const axiosSecure=UseAxiosSecure()
-
-
-  // const handleSubmita = async (e) => {
-  //   e.preventDefault();
-  //   const name=e.target.name.value
-  //   const email=e.target.email.value
-  //   const password=e.target.password.value
-  //   const role='user'
-  //   console.log(role);
-  //   // const photo=e.target.photo.value
-  //   console.log(name,email,password);
-  //   // const res = await axiosPublic.post(image_hosting_api,photo,{
-  //   //   headers: {
-  //   //     'content-type': 'multipart/form-data'
-  //   //   }
-  //   // })
-  //   // console.log(res.data);
-    
-  //   createUser(email,password)
-  //   .then(result=>{
-  //     updateProfile(result.user,{
-  //       displayName:name,
-  //       // photoURL: photo,
-  //     })
-  //     axiosPublic.post('/users',{name,email})
-  //     .then(res=>{
-  //       console.log(res.data);
-  //       if (res.data.insertedId) {
-  //         toast.success("Account created successfully",{position:'top-center',autoClose: 1000});
-  //       }
-  //     })
-  //     // console.log(result.user);
-  //     navigate('/')
-      
- 
-  //   })
-  //   .catch(error=>{
-  //     console.log(error.message);
-  //     toast.error(error.message,{position:'top-center',autoClose: 5000});
-  //   })
-  // };
+  const {user}=UseAuth()
+  console.log(user);
  
   const handleGoogle=()=>{
     console.log('clicked');
@@ -66,7 +29,8 @@ const Register = () => {
         console.log(result.user);
         const userInfo = {
           email:result.user?.email,
-          name:result.user?.displayName
+          name:result.user?.displayName,
+          image:result.user?.photoURL
         }
         axiosPublic.post('/users',userInfo)
         .then(res=>{
@@ -89,6 +53,23 @@ const onSubmit = async (data) => {
   const name=data.name;
   const password=data.password;
   const email=data.email;
+
+    var specialCarrecter= /[!@#$%^&*()_+{}:;<;>,.?=\\|]/;
+    if(password.length<6){
+      setError('Password must be atleast 6 carrecter or long ')
+      return
+    }
+    else if(!/[A-Z]/.test(password)){
+      setError('Password should have atleast one capital letter')
+      return
+    }
+    else if(!specialCarrecter.test(password)){
+      setError('Password should have atleast one special carrecter like !@#$%^&*()_+{}:;<;>,.?=\\|')
+      return
+    }
+
+
+
   const res = await axiosPublic.post(image_hosting_api, imageFile,{
       headers:{
         'content-type': 'multipart/form-data'
@@ -98,7 +79,7 @@ const onSubmit = async (data) => {
        
        createUser(email,password)
        .then(result=>{
-        const image=res?.data?.data.display_url;
+        const image=res?.data?.data.display_url
          updateProfile(result.user,{
            displayName:name,
            photoURL: res?.data?.data.display_url
@@ -213,6 +194,11 @@ const onSubmit = async (data) => {
                 <button className="bg-blue-500 w-full mt-5 p-2 font-semibold text-white">
                   Register
                 </button>
+                {error && (
+                  <p className="bg-red-500 py-1 mt-3 rounded-lg px-3 text-white">
+                    {error}
+                  </p>
+                )}
               </form>
 
               <h1 className="text-blue-900 text-center font-semibold">
@@ -222,7 +208,7 @@ const onSubmit = async (data) => {
                 </Link>{" "}
               </h1>
               <p className="text-center">Or sign up with</p>
-             <div onClick={handleGoogle} className="flex justify-center items-center gap-3 bg-slate-100 px-2 py-2 rounded-lg ">
+             <div onClick={handleGoogle} className="flex justify-center cursor-pointer items-center gap-3 bg-slate-100 px-2 py-2 rounded-lg ">
              <FcGoogle className="text-2xl"></FcGoogle> <p>Continue with Google</p>
              </div>
             </div>

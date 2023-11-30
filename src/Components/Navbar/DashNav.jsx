@@ -4,6 +4,7 @@ import UseAdmin from "../../Hooks/useAdmin";
 import UseCreator from "../../Hooks/useCreator";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { useState } from "react";
+import logo from '/src/assets/logo.png'
 
 const DashNav = () => {
   const {isAdmin}=UseAdmin()
@@ -143,7 +144,7 @@ const DashNav = () => {
       {/* desktop nav */}
       <div className="hidden md:block">
       <div className="flex flex-col items-center gap-5 my-10 px-2">
-        <img src="/src/assets/logo.png" className="w-48 mb-8" alt="" />
+        <img src={logo} className="w-48 mb-8" alt="" />
                 {/* {
                     navLinks?.map(link=> (
                         <NavLink to={link.path} key={link.id}

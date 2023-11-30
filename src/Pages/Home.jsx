@@ -14,9 +14,9 @@ const Home = () => {
     <div className="mb-10">
        <Banner></Banner>
        <Popular></Popular>
-       <BestCreator></BestCreator>
         <AdBanner></AdBanner>   
         <ContestWinner></ContestWinner>
+       <BestCreator></BestCreator>
 
     </div>
   );

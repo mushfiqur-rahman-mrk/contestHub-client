@@ -23,7 +23,7 @@ const Popular = () => {
 
   return (
     <Container>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10 px-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 my-20 px-5">
         {contests?.slice(0,6).map((contest) => (
           <ContestCard contest={contest} key={contest._id}></ContestCard>
         ))}

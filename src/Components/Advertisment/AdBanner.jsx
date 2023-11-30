@@ -1,4 +1,5 @@
- 
+import adimage from '/src/assets/ad.jpg'
+
 const AdBanner = () => {
   return (
     <>
@@ -7,7 +8,7 @@ const AdBanner = () => {
     
           <img
             className="h-full w-full object-cover object-center"
-            src="/src/assets/ad.jpg"
+            src={adimage}
             alt="Winding mountain road"
           />
         </div>

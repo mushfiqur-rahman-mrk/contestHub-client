@@ -249,7 +249,7 @@ const image_hosting_api= `https://api.imgbb.com/1/upload?key=${image_hosting_key
 
 const AddContest = () => {
     const {user}=UseAuth()
-    const { register,formState: { errors }, handleSubmit } = useForm();
+    const { register,reset,formState: { errors }, handleSubmit } = useForm();
     const axiosPublic=UseAxiosPublic()
     const axiosSecure=UseAxiosSecure()
   const onSubmit = async (data) => {
@@ -283,6 +283,7 @@ const AddContest = () => {
         console.log(menures.data);
         if(menures.data.insertedId){
           toast.success(`${data?.name} added success fully`)
+          reset()
         }
       }
       console.log(res.data);
