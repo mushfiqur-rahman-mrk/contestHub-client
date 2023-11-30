@@ -13,7 +13,7 @@ const ContestSubmission = () => {
  
 
   const creatorStats=UseCreatorStats()
-  console.log(creatorStats?.data?.myContest);
+  // console.log(creatorStats?.data?.myContest);
 
   const axiosSecure=UseAxiosSecure()
   const { data:submissions, refetch } = useQuery({
@@ -23,11 +23,11 @@ const ContestSubmission = () => {
       return res.data;
     },
   });
-   console.log('hello sub',submissions);
+  //  console.log('hello sub',submissions);
   return (
     <>
  
-      <div className='min-h-[calc(100vh)] mb-10'>
+      <div className='min-h-[calc(100vh)] mb-10 mx-5'>
         <DashTitle title={'Contest Submission'}></DashTitle>
 
       {

@@ -4,22 +4,17 @@ import PayModal from '../Payment/PayModal';
 
 const RegButton = ({deadline,id,price}) => {
   console.log('amar id',id);
-  // Assuming deadlines is an array of objects with a 'date' property in 'YYYY-MM-DD' format
-  // const deadlines = [
-  //   { date: '2023-11-30' },
-  //   // Add more deadlines as needed
-  // ];
-//   const dead = '2023-11-15'
+ 
 
   const [currentDeadline, setCurrentDeadline] = useState(deadline);
 
-  // useEffect(() => {
-  //   // Fetch the deadline from an API or some other source
-  //   // Example: fetchDeadline().then((data) => setCurrentDeadline(data.deadline));
-  // }, []);
+ 
 
   const isRegistrationDisabled = new Date() > new Date(currentDeadline);
+
   console.log(isRegistrationDisabled);
+
+  
   return (
     <div>
       {/* Your other form elements... */}

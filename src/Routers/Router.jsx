@@ -22,6 +22,7 @@ import EditContest from "../Pages/Dashboard/Creator/EditContest";
 import axios from "axios";
 import AdminRoute from "./AdminRoute";
 import PrivetRoute from "./PrivetRoute";
+import Priceing from "../Pages/Priceing/Priceing";
  
 
 const Router = createBrowserRouter([
@@ -46,6 +47,10 @@ const Router = createBrowserRouter([
           path:'payment/:id',
           element:<PrivetRoute><Payment></Payment></PrivetRoute>,
           // loader: (params) => fetch(`https://contest-hub-server-jet.vercel.app/contest/${params.id}`)
+        },
+        {
+          path:'pricing',
+          element: <Priceing></Priceing>
         }
  
     ]

@@ -2,19 +2,20 @@ import { useState } from "react";
 
 const MyContestTableRow = ({item,idx}) => {
     // const time=new Date()
+    // console.log(item);
     const [currentDeadline, setCurrentDeadline] = useState(item.deadline);
     // const ittt=new Date(item?.deadline)
     const isOpen = new Date() > new Date(currentDeadline);
     // new Date() > new Date(currentDeadline);
     // console.log('current time ', time);
     // console.log('deadline time ', ittt);
-    console.log(isOpen);
+    // console.log(isOpen);
 
   return (
     <>
       <tr
                         key={item._id}
-                        className="hover:bg-gray-100 dark:hover:bg-orange-200"
+                        className="hover:bg-gray-100 dark:hover:bg-purple-200"
                       >
                         <td className="p-4 w-4">
                           <div className="flex items-center">{idx + 1}</div>

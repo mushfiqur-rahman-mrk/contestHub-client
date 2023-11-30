@@ -1,27 +1,75 @@
 import axios from "axios";
 import MyContestTableRow from "../MyContestTableRow";
+import Swal from "sweetalert2";
 
-const PannelTable = ({ item, idx,refetch,okfetch }) => {
-    const {_id,email,price,transactionId,deadline,ConName,type,creatorEmail,contestId}=item || {}
-    const handleWinner=(email)=>{
-        console.log('clicked',email);
-        const winner={
-            isWinner:true,
-            winnerEmail:email,
-            winnerName: '',
-        }
-        axios.patch(`https://contest-hub-server-jet.vercel.app/contest/winner/${contestId}`,winner)
-        .then(res=>{
-            if(res.data.modifiedCount > 0){
-                console.log('successful');
-                okfetch()    
-        }
-        })
+const PannelTable = ({ item, idx, refetch, okfetch }) => {
+  const {
+    _id,
+    email,
+    price,
+    transactionId,
+    deadline,
+    ConName,
+    type,
+    creatorEmail,
+    contestId,
+  } = item || {};
+  const handleWinner = (email, name) => {
+    const isRegistrationDisabled = new Date() > new Date(deadline);
 
+    if(isRegistrationDisabled){
+      const winner = {
+        isWinner: true,
+        winnerEmail: email,
+        winnerName: name,
+      };
+      axios
+        .patch(
+          `https://contest-hub-server-jet.vercel.app/contest/winner/${contestId}`,
+          winner
+        )
+        .then((res) => {
+          if (res.data.modifiedCount > 0) {
+            console.log("successful");
+            okfetch();
+          }
+        });
+    }else{
+      Swal.fire({
+        title: "Deadline is not over yet.!",
+        text: "Are you sure you want to fix the winner",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, fix the winner",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          const winner = {
+            isWinner: true,
+            winnerEmail: email,
+            winnerName: name,
+          };
+          axios
+            .patch(
+              `https://contest-hub-server-jet.vercel.app/contest/winner/${contestId}`,
+              winner
+            )
+            .then((res) => {
+              if (res.data.modifiedCount > 0) {
+                 
+                okfetch();
+              }
+            });
+        }
+      });
     }
+
+
+
+  };
   return (
     <>
- 
       <tr className="hover:bg-gray-100 dark:hover:bg-purple-200">
         <td className="p-4 w-4">
           <div className="flex items-center">{idx + 1}</div>
@@ -36,7 +84,12 @@ const PannelTable = ({ item, idx,refetch,okfetch }) => {
           {item.deadline}
         </td>
         <td className="text-center">
-            <button onClick={()=>handleWinner(item.email)} className="cursor-pointer">Make winner</button>
+          <button
+            onClick={() => handleWinner(item.email, item.name)}
+            className="cursor-pointer"
+          >
+            Make winner
+          </button>
         </td>
       </tr>
     </>

@@ -10,6 +10,7 @@ const SubmissionTabPnel = ({ item }) => {
   const [params, setParams] = useSearchParams();
   const contest = params.get("contest");
   const {checkWinner,okfetch}=UseWinner()
+ 
 //   console.log('hook',iswinner.isWinner);
  
   const [contestDetail, setContestDetail] = useState([]);
@@ -42,7 +43,7 @@ const SubmissionTabPnel = ({ item }) => {
         {
             checkWinner?.isWinner ? <>
                 <div className="w-full bg-[#602BF7] text-white h-96 flex justify-center items-center">
-                    <h1 className="text-xl">Winner of this Contest is {checkWinner?.winnerEmail}</h1>
+                    <h1 className="text-xl">Winner of this Contest is ---- <i>'{checkWinner?.winnerName}'</i></h1>
                 </div>
             </>
             :

@@ -86,7 +86,7 @@ const CheckOut = ({price,name,data}) => {
               console.log(res.data);
               if(res?.data.insertedId){
                 
-                toast.success('Thanks for your payment')
+                toast.success('Congratulation!!. You successfully regeister for this contest')
                 navigate('/all-contest')
               }
             }

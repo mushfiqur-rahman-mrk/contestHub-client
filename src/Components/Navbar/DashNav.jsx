@@ -92,7 +92,7 @@ const DashNav = () => {
     },
     {
       id:16,
-      text:'My Created Contest',
+      text:'Created Contest',
       path:'/dash-board/created-contest'
     },
     {
@@ -158,7 +158,7 @@ const DashNav = () => {
               {
                 isAdmin && adminNavLinks.map(link=> (
                   <NavLink to={link.path} key={link.id}
-                      className={({isActive})=> isActive ? 'px-5 text-[#EEFF25] font-semibold' : 'px-5 text-white font-semibold'}
+                      className={({isActive})=> isActive ? 'px-5 text-[#EEFF25]  font-semibold' : 'px-5 text-white font-semibold'}
                   >
                       {link.text}
                   </NavLink>

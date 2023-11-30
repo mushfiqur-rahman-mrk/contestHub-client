@@ -6,6 +6,8 @@ import { useLoaderData, useParams } from "react-router-dom";
 import UseAxiosPublic from "../../Hooks/useAxiosPublic";
 import { useEffect, useState } from "react";
 import Container from "../../Components/Shared/Container";
+import art from '/src/assets/10009.png'
+
 
 const stripePromise = loadStripe(import.meta.env.VITE_PAYEMENT_KEY);
 const Payment = () => {
@@ -20,7 +22,7 @@ const Payment = () => {
   return (
     <>
       <div className="bg-gradient-to-r from-[#341786] to-[#0E0E30] w-full h-60 mb-5 relative">
-        <div className="absolute bottom-0 right-0 mb-[-10px]"><img src="/src/assets/10009.png" alt="" /></div>
+        <div className="absolute bottom-0 right-0 mb-[-10px]"><img src={art} alt="" /></div>
       </div>
       <Container>
         <div className="max-w-xl mx-auto my-20 px-10">

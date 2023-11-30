@@ -6,6 +6,7 @@ import BestCreator from "../Components/BestCreator/BestCreator";
 import Drop from "../Components/DropBtn/Drop";
 import DropDown from "../Components/DropBtn/DropDown";
 import Popular from "../Components/Popular/Popular";
+import DLDisable from "../Components/Test/DLDisable";
 import TestFire from "../Components/TestFire";
 
 const Home = () => {
@@ -17,7 +18,7 @@ const Home = () => {
         <AdBanner></AdBanner>   
         <ContestWinner></ContestWinner>
        <BestCreator></BestCreator>
-
+      <DLDisable></DLDisable>
     </div>
   );
 };

@@ -25,6 +25,11 @@ const Navbar = () => {
       text: "All Contest",
       path: "/all-contest",
     },
+    {
+      id: 3,
+      text: "Priceing",
+      path: "/pricing",
+    }
   ];
 
   const handleLogout = () => {
